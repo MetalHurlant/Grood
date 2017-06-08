@@ -20,7 +20,9 @@ Eolienne.prototype.sell = function() {
 	    timeout: 5000
 	};
 	
-	http.request(options);
+	http.request(options, function(res) {
+		console.log(res);
+	});
 };
 	
 	
