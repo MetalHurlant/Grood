@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
+var model = {};
+
 // middleware that is specific to this router
 router.use(function timeLog (request, response, next) {
   console.log('Time: ', Date.now());
@@ -10,33 +12,65 @@ router.use(function timeLog (request, response, next) {
 router.get('/', function(request, response) {
 	response.send({
 		'add': {
-			method: 'GET'
+			method: 'GET',
+			'query-parameters': {
+				id: 'user id',
+				diff: 'add credits to user acount'
+			}
 		},
 		'redeem': {
-			method: 'GET'
+			method: 'GET',
+                        'query-parameters': {
+                                id: 'user id',
+                                diff: 'redeem credits to user acount'
+                        }
+
 		},
 		'view': {
-			method: 'GET'
+			method: 'GET',
+                        'query-parameters': {
+                                id: 'user id',
+                        }
+
 		}
 	});
 });
 
 router.get('/add', function(request, response) {
+	var id = request.query.id;
+	var diff = request.query.diff;
+	if(undefined == model[id]) {
+		model[id] = { solde: 0 };
+	}
+	model[id].solde += parseInt(diff);
 	response.send({
-		log: 'add not implemented yet'
+		id: id,
+		solde: model[id].solde
 	});
 });
 
 router.get('/redeem', function(request, response) {
-	response.send({
-		log: 'redeem not implemented yet'
-	});
+        var id = request.query.id;
+        var diff = request.query.diff;
+        if(undefined == model[id]) {
+                model[id] = { solde: 0 };
+        }
+        model[id].solde -= parseInt(diff);
+        response.send({
+                id: id,
+                solde: model[id].solde
+        });
 });
 
 router.get('/view', function(request, response) {
-	response.send({
-		log: 'view not implemented yet'
-	});
+        var id = request.query.id;
+        if(undefined == model[id]) {
+                model[id] = { solde: 0 };
+        }
+        response.send({
+                id: id,
+                solde: model[id].solde
+        });
 });
 
 module.exports = router
