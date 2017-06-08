@@ -1,3 +1,5 @@
+var http=require("http")
+
 var Eolienne = function() {
 	setInterval(this.sell.bind(this), 5000);
 };
