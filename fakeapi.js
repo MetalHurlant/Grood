@@ -7,13 +7,27 @@ router.use(function timeLog (request, response, next) {
   next();
 })
 
-router.get('/add', function (request, response) {
+router.get('/', function(request, response) {
+	response.send({
+		'add': {
+			method: 'GET'
+		},
+		'redeem': {
+			method: 'GET'
+		},
+		'view': {
+			method: 'GET'
+		}
+	});
+});
+
+router.get('/add', function(request, response) {
 	response.send({
 		log: 'add not implemented yet'
 	});
 });
 
-router.get('/redeem', function (request, response) {
+router.get('/redeem', function(request, response) {
 	response.send({
 		log: 'redeem not implemented yet'
 	});
