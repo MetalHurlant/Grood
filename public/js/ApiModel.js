@@ -13,6 +13,13 @@ define(['jquery', 'js/Observable'], function($, Observable) {
     Model.prototype.getIP = function() {
         return this._ip;
     }
+	
+    Model.prototype.setAmount = function(amount) {
+        this._amount = amount;
+    }
+    Model.prototype.getAmount = function() {
+        return this._amount;
+    }
     
     Model.prototype.setUserID = function(id) {
         this._userId = id;
@@ -22,17 +29,17 @@ define(['jquery', 'js/Observable'], function($, Observable) {
         return this._userId;
     };
     
-    Model.prototype.buy = function(amount) {        
+    Model.prototype.buy = function() {        
 	var url = 'http://'+this.getIP()+'/executeContract';
 	console.log('buy request emitted', url);
-        //*
+	console.log('amount', this.getAmount());
         $.ajax({
             url: url,
             method: 'GET',
             data: {
 		clientName: 'farmer',
 		function: 'redeem',
-		amount: 8
+		amount: this.getAmount()
 	    },
 	    timeout: 5000
         })

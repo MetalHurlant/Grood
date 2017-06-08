@@ -27,6 +27,9 @@ function(ApiModel, ConfigurationController, InteractionController, Visualisation
     var visualisation = new VisualisationController('#visualisation', api);
     
     interaction.on('all', visualisation.render, this);
+	
+	
+	setInterval(api.get(), 5000)
     // api.on('change:ip', (event, ip) => console.log(ip));
 });//*/
  
