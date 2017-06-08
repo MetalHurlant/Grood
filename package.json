@@ -1,0 +1,21 @@
+{
+  "name": "gridcommunity-web-client",
+  "version": "0.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FerdinandPiette/gridcommunity-web-client"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FerdinandPiette/gridcommunity-web-client/issues"
+  },
+  "dependencies": {
+    "express": "^4.15.3"
+  }
+}

@@ -1,0 +1,86 @@
+/* .navbar-inverse{
+	background-image: linear-gradient(to bottom,#2A3C64 0,#0F1D3C 100%);
+	background-repeat: repeat-x;
+
+} */
+
+.navbar-fixed-top {
+	border-width: 0 0 0;
+}
+
+.navbar-inverse{
+	background-image: linear-gradient(to bottom,#069176 0,#069176 100%);
+	background-repeat: repeat-x;
+	box-shadow: 0 0 4px rgba(0,0,0,0.3);
+	font-weight: bold;
+}
+
+.navbar-nav{
+	margin-left: 155px;
+}
+
+.navbar-inverse .navbar-nav>.active>a{
+	background: linear-gradient(to bottom, #05755F 0,#05755F 100%);
+	box-shadow: none;
+}
+
+/* .navbar-inverse .navbar-nav>.active>a:hover {
+	background: transparent;
+	box-shadow: none;
+} */
+#logo{
+	position: absolute;
+	top: 5px;
+	left: 15px;
+	width: 45px;
+}
+
+#header_title{
+	color: #EEEEEE;
+	position: absolute;
+	left: 80px;
+	font-size: 32px;
+	font-weight: 700;
+	text-shadow: 0 1px rgba(0,0,0,0.7);
+	line-height: 100%;
+	margin-right: 40px;
+	font-family:"Lato";
+	/* color: #FF817C; */
+}
+
+.welcome{
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#clock{
+	position : absolute;
+	padding-top: 20px;
+	right: 15px;
+	color : white;
+	font-size: 16px ;
+	line-height: 100%;
+}
+
+.nav > .active , .navbar-inverse .navbar-nav>li:hover{
+	/* border-bottom: 3px solid white; */
+	box-sizing: border-box; 
+}
+.nav > li{
+	font-size: 16px ;
+}
+.nav > li > a{
+	padding: 20px 15px;
+}
+.glyphicon {
+	font-size: 12px;
+}
+.navbar-inverse .navbar-nav>li>a {
+	color: #FFF;
+}
+
+/* .navbar-inverse .navbar-nav>.active>a {
+	background-image: linear-gradient(to bottom,#2A3C64 0,#0F1D3C 100%);
+	background-repeat: repeat-x;
+} */
