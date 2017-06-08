@@ -25,7 +25,7 @@ define(['jquery', 'js/Observable'], function($, Observable) {
     };
     
     Controller.prototype.getAmount = function() {
-        return $(this._view+' name[amount]').val();
+        return $(this._view+' input[name=amount]').val();
     };
 
     Controller.prototype.changeUserIDAction = function() {
@@ -36,7 +36,7 @@ define(['jquery', 'js/Observable'], function($, Observable) {
     Controller.prototype.buyAction = function() {
         //throw new Error('buyAction is not implemented yet');
         // Faire la requête pour acheter de l'énergie
-        this._model.buy();
+        this._model.buy(this.getAmount());
     };
     
     Controller.prototype.sellAction = function() {

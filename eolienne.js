@@ -7,9 +7,7 @@ var Eolienne = function() {
 
 
 Eolienne.prototype.sell = function() {        
-	var url = 'http://192.168.0.31:8080/executeContract';
-	console.log('sell request emitted', url);
-	
+	console.log('sell request emitted');
 	
 	var options = {
 		port: 8080,
@@ -20,7 +18,7 @@ Eolienne.prototype.sell = function() {
 	    timeout: 5000
 	};
 	
-	http.request(options, function(res) {
+	http.get(options, function(res) {
 		console.log(res);
 	});
 };
