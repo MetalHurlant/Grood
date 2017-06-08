@@ -4,6 +4,8 @@
   "description": "",
   "main": "main.js",
   "scripts": {
+    "start": "node main.js > server.log &",
+    "stop": "killall -SIGINT gridcommunauty-web-client",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

@@ -26,7 +26,7 @@ function(ApiModel, ConfigurationController, InteractionController, Visualisation
     var interaction = new InteractionController('#interaction', api);
     var visualisation = new VisualisationController('#visualisation', api);
     
-    interaction.on('all', visualisation.refresh);
+    interaction.on('all', visualisation.render, this);
     // api.on('change:ip', (event, ip) => console.log(ip));
 });//*/
  

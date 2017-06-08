@@ -22,43 +22,66 @@ define(['jquery', 'js/Observable'], function($, Observable) {
         return this._userId;
     };
     
-    Model.prototype.buy = function() {        
-        /*
+    Model.prototype.buy = function(amount) {        
+	var url = 'http://'+this.getIP()+'/executeContract';
+	console.log('buy request emitted', url);
+        //*
         $.ajax({
-            url: '',
-            method: 'POST',
-            data: {}
+            url: url,
+            method: 'GET',
+            data: {
+		clientName: 'farmer',
+		function: 'redeem',
+		amount: 8
+	    },
+	    timeout: 5000
         })
-        .done(response => this.trigger('bought', response));//*/
+        .done(response => {
+		this.trigger('bought', response); 
+		console.log('done buy', response);
+	})
+	.fail(response => console.log('fail buy', response) )
+	//.always(response => console.log('always', response) )
+	;//*/
     };
     
     Model.prototype.sell = function() {
-        /*
+        var url = 'http://'+this.getIP()+'/executeContract';
+        console.log('sold request emitted', url);
+        //*
         $.ajax({
-            url: '',
-            method: 'POST',
-            data: {}
+            url: url,
+            method: 'GET',
+            data: {
+                clientName: 'farmer',
+                function: 'add',
+                amount: 8
+            },
+            timeout: 5000
         })
         .done(response => this.trigget('sold', response));//*/
         
     };
     
     Model.prototype.get = function() {
-        /*
+	var clientName = this.getUserID();
+        var url = 'http://'+this.getIP()+'/query';
+        console.log('query request emitted', url);
+        //*
         $.ajax({
-            url: '',
-            method: 'GET'
+            url: url,
+            method: 'GET',
+	    data: {
+		clientName: clientName
+	    }, 
+	    timeout: 5000
         })
-        .done(response => this.trigger('load:user', response));//*/        
-    };
-    
-    Model.prototype.getAll = function() {
-        /*
-        $.ajax({
-            url: '',
-            method: 'GET'
-        })
-        .done(response => this.trigger('load:users', response));//*/
+        .done(response => {
+		console.log('done query', response);
+		this.trigger('load:user', clientName, response.message);
+	})
+	.fail(response => console.log('fail query', response))
+	;//*/        
     };
     
     return Model;

@@ -4,12 +4,16 @@ define(['jquery', 'js/Observable'], function($, Observable) {
         Observable.call(this);
         this._view = view;
         this._model = model;
-        this.addListeners();
+        this.addListeners();        
+	var id = this.getUserID();
+        if(undefined !== id) { this.changeUserIDAction(); }
+
     });
     
     Controller.prototype.addListeners = function() {
         $(this._view).on('click', '.buy', this.buyAction.bind(this));
         $(this._view).on('click', '.sell', this.sellAction.bind(this));
+	$(this._view).on('change', '.user-id', this.changeUserIDAction.bind(this));
     };
     
     Controller.prototype.render = function() {
@@ -19,12 +23,17 @@ define(['jquery', 'js/Observable'], function($, Observable) {
     Controller.prototype.getUserID = function() {
         return $(this._view+' .user-id').val();
     };
+
+    Controller.prototype.changeUserIDAction = function() {
+	var userID = this.getUserID();
+	this._model.setUserID(userID);
+    };
     
     Controller.prototype.buyAction = function() {
-        throw new Error('buyAction is not implemented yet');
+        //throw new Error('buyAction is not implemented yet');
         var userID = this.getUserID();
         // Faire la requête pour acheter de l'énergie
-        //this._model.buy(() => this.trigget('buy', userID));
+        this._model.buy(() => this.trigget('buy', userID));
     };
     
     Controller.prototype.sellAction = function() {

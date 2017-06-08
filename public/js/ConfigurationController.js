@@ -6,10 +6,13 @@ define(['jquery', 'js/Observable'], function($, Observable) {
         this._model = model;
         this.addListeners();
         this.render();
+	var ip = $(this._view+' .ip').val();
+	if(undefined !== ip) { this.ipHasChanged(); }
     });
     
     Controller.prototype.addListeners = function() {
-        $(this.view).on('change', '.ip', this.ipHasChanged.bind(this));
+        $(this._view).on('change', '.ip', this.ipHasChanged.bind(this));
+	this._model.on('change:ip', this.render, this);
     };
     
     Controller.prototype.render = function() {
@@ -17,7 +20,8 @@ define(['jquery', 'js/Observable'], function($, Observable) {
     };
     
     Controller.prototype.ipHasChanged = function() {
-        var ip = $(this.view+' .ip').val();
+        var ip = $(this._view+' .ip').val();
+	//console.log('config ctrl',ip);
         this._model.setIP(ip);
     };
     
