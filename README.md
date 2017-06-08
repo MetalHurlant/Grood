@@ -1,8 +1,9 @@
-#Project initialisation
+# Project initialisation
 
 `npm install`
 
-#Project start and stop
+# Project start and stop
 
-`npm start
-npm stop`
+`npm start`
+
+`npm stop`
