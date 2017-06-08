@@ -29,7 +29,7 @@ function(ApiModel, ConfigurationController, InteractionController, Visualisation
     interaction.on('all', visualisation.render, this);
 	
 	
-    setInterval(api.get.bind(api), 5000)
+    setInterval(api.get.bind(api), 10000)
     // api.on('change:ip', (event, ip) => console.log(ip));
 });//*/
  

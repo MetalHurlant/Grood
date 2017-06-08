@@ -1,7 +1,7 @@
 var http=require("http")
 
 var Eolienne = function() {
-	setInterval(this.sell.bind(this), 5000);
+	setInterval(this.sell.bind(this), 10000);
 };
 
 
@@ -19,7 +19,7 @@ Eolienne.prototype.sell = function() {
 	};
 	
 	http.get(options, function(res) {
-		console.log(res);
+		console.log(res.headers);
 	});
 };
 	
