@@ -11,12 +11,12 @@ Eolienne.prototype.sell = function() {
 	console.log('sell request emitted', url);
 	
 	
-	const options = {
+	var options = {
 		port: 8080,
 		hostname: '192.168.0.31',
 		method: 'GET',
-		protocol: 'http:',
-		path: '/executeContract?clientname=farmer&function=add&amount=2',
+		//protocol: 'http:',
+		path: '/executeContract?clientName=farmer&function=add&amount=2',
 	    timeout: 5000
 	};
 	
