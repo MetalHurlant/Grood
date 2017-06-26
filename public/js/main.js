@@ -16,7 +16,6 @@ require.config({
         }
     }
 });
-
 //*
 require(['js/ApiModel', 'js/ConfigurationController', 'js/InteractionController', 'js/VisualisationController', 'bootstrap'],
 function(ApiModel, ConfigurationController, InteractionController, VisualisationController, require) {
@@ -26,10 +25,11 @@ function(ApiModel, ConfigurationController, InteractionController, Visualisation
     var interaction = new InteractionController('#interaction', api);
     var visualisation = new VisualisationController('#visualisation', api);
     
+    interaction.changeProdAction();
     interaction.on('all', visualisation.render, this);
 	
 	
-    setInterval(api.get.bind(api), 10000)
+    //setInterval(api.get.bind(api), 10000)
     // api.on('change:ip', (event, ip) => console.log(ip));
 });//*/
  

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<!--<link rel="shortcut icon" id="favicon" href="img/logo/xxx.png">-->
+	<meta charset="UTF-8" />
+	<title>Grid Community</title>
+	<meta name="language" content="fr-FR" />
+	<!--<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<meta content="" property="og:title" />
+	<meta content="" property="og:description" />
+	<meta content="" property="og:image" />-->
+        
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/bootstrap/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="css/style.css" />	
+    <link rel="stylesheet" href="css/header.css" />
+    </head>
+    <body>   
+        
+        <div id="header">
+            <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu-content">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <!--<img src="img/logo/logo_xxx.png" alt="" id="logo"/>-->
+                    <a href="#" id="header_title" class="navbar-brand">Grid Community</a>
+                </div>
+                
+                <div class="collapse navbar-collapse" id="menu-content">
+                    <ul class="nav navbar-nav">
+                        <li><a href="/pay">Pay</a></li>
+                        <li><a href="/logout">Disconnect</a></li>
+                    </ul>
+                </div> 
+                    
+            </div>
+        </div>
+        </div>
+        
+        <div class="container" id="page">
+            
+
+
+	<table class="table table-striped" id="table-account">
+		<caption>Your account</caption>
+                <tr>
+           	    <td>Username</td>
+                    <td><%= user.local.email %></td>
+              	</tr>
+		<tr>
+		    <td>Email</td>
+		    <td><%= user.local.email %>lebg@courriel.fr</td>
+		</tr>
+		<tr>
+		    <td>Phone number</td>
+		    <td>0606060606</td>
+		</tr>
+		<tr>
+		    <td>Address</td>
+		    <td>532 Main Street</td>
+		</tr>
+		<tr>
+		    <td>City</td>
+		    <td>New-York</td>
+		</tr>
+		<tr>
+		    <td>Country</td>
+		    <td>United-States of America</td>
+		</tr>
+	</table>
+            
+
+	<div id="interaction">
+	    <form name="prodtab" action="">
+		<table class="table table-striped" id="table-equipement">
+			<caption>Your Equipements</caption>
+		        <tr>
+		   	    <th>Equipement</th>
+		            <th>ID</th>
+		            <th>Active</th>
+		            <th>Production/Consumption (/hour)</th>
+		            <th></th>
+		      	</tr>
+			<tr>
+			    <td>House</td>
+			    <td>197543</td>
+			    <td><input type="checkbox" name="cbox1" id="cbox1" value="checkbox1" checked></td>
+			    <td><input type="range" id="prod1" value="2" max="10" min="0" step="1" style="max-width:200px"></td>
+			    <td id="prodaff1"></td>
+			</tr>
+			<tr>
+			    <td>rented SolarPanel</td>
+			    <td>513226</td>
+			    <td><input type="checkbox" id="cbox2" value="checkbox2"></td>
+			    <td><input type="range" id="prod2" value="2" max="5" min="0" step="1" style="max-width:200px"></td>
+			    <td id="prodaff2"></td>
+			</tr>
+			<tr>
+			    <td>Car</td>
+			    <td>94573</td>
+			    <td><input type="checkbox" id="cbox3" value="checkbox3"></td>
+			    <td><input type="range" id="prod3" value="2" max="5" min="0" step="1" style="max-width:200px"></td>
+			    <td id="prodaff3"></td>
+			</tr>
+			<tr>
+			    <td>Total</td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td id="prodtot"></td>
+			</tr>
+		</table>
+	    </form>
+	<div>
+
+
+        
+       	<div id="footer">
+            <div class="container">
+                Grid Communit - POC</span>
+            </div>
+       	</div>
+ 
+        <script data-main="js/main" src="js/libs/require.js"></script>
+    </body>
+</html>

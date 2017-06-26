@@ -15,6 +15,7 @@ define(['jquery', 'js/Observable'], function($, Observable) {
     }
 	
     Model.prototype.setUserID = function(id) {
+	console.log("UserID set in Model");
         this._userId = id;
     }
     
@@ -22,7 +23,7 @@ define(['jquery', 'js/Observable'], function($, Observable) {
         return this._userId;
     };
     
-    Model.prototype.buy = function(amount) {        
+    Model.prototype.buy = function(amount, userID) {        
 	var url = 'http://'+this.getIP()+'/executeContract';
 	console.log('buy request emitted', url);
 	console.log('amount', amount);
@@ -30,7 +31,7 @@ define(['jquery', 'js/Observable'], function($, Observable) {
             url: url,
             method: 'GET',
             data: {
-		clientName: 'farmer',
+		clientName: userID,
 		function: 'redeem',
 		amount: amount
 	    },
@@ -45,26 +46,27 @@ define(['jquery', 'js/Observable'], function($, Observable) {
 	;//*/
     };
     
-    Model.prototype.sell = function() {
+    Model.prototype.sell = function(amount, userID) {
         var url = 'http://'+this.getIP()+'/executeContract';
         console.log('sold request emitted', url);
+	console.log('amount', amount);
+	console.log('userID', userID);
         //*
         $.ajax({
             url: url,
             method: 'GET',
             data: {
-                clientName: 'farmer',
+                clientName: userID,
                 function: 'add',
-                amount: 8
+                amount: amount
             },
             timeout: 5000
         })
-        .done(response => this.trigget('sold', response));//*/
+        .done(response => this.trigger('sold', response));//*/
         
     };
     
-    Model.prototype.get = function() {
-	var clientName = this.getUserID();
+    Model.prototype.get = function(clientName) {
         var url = 'http://'+this.getIP()+'/query';
         console.log('query request emitted', url);
         //*
