@@ -1,124 +1,105 @@
 <!DOCTYPE html>
 <html>
     <head>
-	<link rel="shortcut icon" id="favicon" href="img/logo.png">
-	<meta charset="UTF-8" />
-	<title>I'm Grood</title>
-	<meta name="language" content="fr-FR" />
-	<!--<meta name="description" content="" />
-	<meta name="keywords" content="" />
-	<meta content="" property="og:title" />
-	<meta content="" property="og:description" />
-	<meta content="" property="og:image" />-->
-        
-    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/bootstrap/bootstrap-theme.min.css" />
-    <link rel="stylesheet" href="css/style.css" />	
-    <link rel="stylesheet" href="css/header.css" />
+	    <link rel="shortcut icon" id="favicon" href="img/logo.png">
+	    <meta charset="UTF-8" />
+	    <title>I'm Grood</title>
+	    <meta name="language" content="fr-FR" />
+            
+        <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
+        <link rel="stylesheet" href="css/bootstrap/bootstrap-theme.min.css" />
+        <link rel="stylesheet" href="css/style.css" />	
+        <link rel="stylesheet" href="css/header.css" />
     </head>
     <body ondragstart="return false;">   
-        
+
         <div id="header">
             <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-            <div class="container">
-
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu-content">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <img src="img/logo.png" alt="" id="logo"/>
-                    <a href="#" id="header_title" class="navbar-brand">Grood</a>
+                <div class="container">
+		            <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu-content">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <img src="img/logo.png" alt="" id="logo"/>
+                        <a href="#" id="header_title" class="navbar-brand">Grood</a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="menu-content">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="/logout">Déconnexion</a></li>
+                        </ul>
+                    </div>    
                 </div>
-                
-                <div class="collapse navbar-collapse" id="menu-content">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="/logout">Déconnexion</a></li>
-                    </ul>
-                </div> 
-                    
             </div>
-        </div>
         </div>
         
         <div class="container" id="page">
-	<div id="configuration">
-            <input type="text" class="ip" placeholder="IP" value="192.168.0.11:8080"/>
-        </div>
-            
-
-	<div id="interaction">
+	        <div id="configuration">
+                <input type="text" class="ip" placeholder="IP" value="192.168.0.11:8080"/>
+            </div>
+	    <div id="interaction">
 		<table class="table table-striped" id="table-account">
-			<caption>Votre compte</caption>
-		        <tr>
-		   	    <td>Nom d'utilisateur</td>
-		            <td class="user-id" id="user-id"><%= user.local.email %></td>
-		      	</tr>
-		</table>
-
+		    <caption>Votre compte</caption>
+		    <tr>
+		        <td>Nom d'utilisateur</td>
+		        <td class="user-id" id="user-id"><%= user.local.email %></td>
+		    </tr>
+        </table>
 	    <h3>Votre solde: <strong class="display-sold"></strong> <img src="img/currency_logo.png" alt=" Groods" height="30"/></h3>
-        
             
-
-	
 	    <h4>Achat</h4>
 	    <input type="number" name="amount"></br>
             <input type="button" class="buy" value="Acheter" />
-
-	    <form name="prodtab" action="">
-		<table class="table table-striped" id="table-equipement">
-			<caption>Your Equipements</caption>
-		        <tr>
-		   	    <th>Equipement</th>
-		            <th>ID</th>
-		            <th>Active</th>
-		            <th>Production/Consumption (/hour)</th>
-		            <th></th>
-		      	</tr>
-			<tr>
-			    <td>House</td>
-			    <td>197543</td>
-			    <td><input type="checkbox" name="cbox1" id="cbox1" value="checkbox1" checked></td>
-			    <td><input type="range" id="prod1" value="2" max="10" min="0" step="1" style="max-width:200px"></td>
-			    <td id="prodaff1"></td>
-			</tr>
-			<tr>
-			    <td>rented SolarPanel</td>
-			    <td>513226</td>
-			    <td><input type="checkbox" id="cbox2" value="checkbox2"></td>
-			    <td><input type="range" id="prod2" value="2" max="5" min="0" step="1" style="max-width:200px"></td>
-			    <td id="prodaff2"></td>
-			</tr>
-			<tr>
-			    <td>Car</td>
-			    <td>94573</td>
-			    <td><input type="checkbox" id="cbox3" value="checkbox3"></td>
-			    <td><input type="range" id="prod3" value="2" max="5" min="0" step="1" style="max-width:200px"></td>
-			    <td id="prodaff3"></td>
-			</tr>
-			<tr>
-			    <td>Total</td>
-			    <td></td>
-			    <td></td>
-			    <td></td>
-			    <td id="prodtot"></td>
-			</tr>
-		</table>
-	    </form>
-	    
-	<div>
-
-
-        
-       	<div id="footer">
-            <div class="container">
-		<img src="img/groot.png" alt="grood" height="50"/>
-                <span><strong>I'm Grood<strong></span>
-            </div>
-       	</div>
- 
-        <script data-main="js/main" src="js/libs/require.js"></script>
+	        <form name="prodtab" action="">
+		        <table class="table table-striped" id="table-equipement">
+			    <caption>Vos équipements</caption>
+		            <tr>
+		       	    <th>Equipements</th>
+		                <th>ID</th>
+		                <th>Activer</th>
+		                <th>Production/Consommation (/heure)</th>
+		                <th></th>
+		          	</tr>
+			    <tr>
+			        <td>Maison</td>
+			        <td>197543</td>
+			        <td><input type="checkbox" name="cbox1" id="cbox1" value="checkbox1" checked></td>
+			        <td><input type="range" id="prod1" value="2" max="10" min="0" step="1" style="max-width:200px"></td>
+			        <td id="prodaff1"></td>
+			    </tr>
+			    <tr>
+			        <td>Panneaux solaires loués</td>
+			        <td>513226</td>
+			        <td><input type="checkbox" id="cbox2" value="checkbox2"></td>
+			        <td><input type="range" id="prod2" value="2" max="5" min="0" step="1" style="max-width:200px"></td>
+			        <td id="prodaff2"></td>
+			    </tr>
+			    <tr>
+			        <td>Voiture</td>
+			        <td>94573</td>
+			        <td><input type="checkbox" id="cbox3" value="checkbox3"></td>
+			        <td><input type="range" id="prod3" value="2" max="5" min="0" step="1" style="max-width:200px"></td>
+			        <td id="prodaff3"></td>
+			    </tr>
+			    <tr>
+			        <td>Total</td>
+			        <td></td>
+			        <td></td>
+			        <td></td>
+			        <td id="prodtot"></td>
+			    </tr>
+		        </table>
+	            </form>
+	        </div>
+	    </div>
+     	<div id="footer">
+                <div class="container">
+		    <img src="img/groot.png" alt="grood" height="50"/>
+           		<span><strong>I'm Grood<strong></span>
+	        </div>
+	    </div>
+	    <script data-main="js/main" src="js/libs/require.js"></script>
     </body>
 </html>
